@@ -1,0 +1,27 @@
+.subtitulos {
+    background-color: rgb(240, 157, 98);
+}
+
+.titulo {
+    background-color: grey;
+}
+
+
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif  ;
+    font-size: medium;
+}
+
+td {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+table{
+    border:  1px solid;
+    border-collapse: collapse;
+    margin: auto;
+    width: 80%;
+}
