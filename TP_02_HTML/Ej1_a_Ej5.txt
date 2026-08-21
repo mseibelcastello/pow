@@ -1,0 +1,102 @@
+1) La siguiente es la estructura general de un documento HTML:
+< HTML>
+< HEAD>
+............
+< /HEAD>
+< BODY>
+............
+< /BODY>
+< /HTML>
+
+a. ¿El encabezado es obligatorio u opcional?
+Es opcional pero recomendado
+
+b. Describa los componentes TITLE, META, BASE, STYLE.
+title:es el titulo de la pagina, se muestra en la pestaña del navegador
+meta: metadatos .. descripcion sobre autor,descripcion de la pagina, etc.
+base: define la url base para todas las urls relativas del documento
+style: permite escribir css interno dentro del documento html
+
+c. ¿El cuerpo es obligatorio u opcional? ¿Qué se codifica en él?
+Es opcional pero no tiene sentido no codificarlo. Se codifica todo el contenido visible de la pagina.
+
+d. Algunos elementos tienen atributos que se escriben dentro del tag de inicio del elemento. El tag <BODY> puede ir acompañado de los siguientes atributos: BGCOLOR, TEXT, LINK, VLINK, ALINK, BACKGROUND, ¿para qué sirve cada uno de ellos?
+bgcolor: es el color del fondo de la pagina
+text: color del texto normal
+link: color de los enlaces no visitados
+vlink: color de los enlaces ya visitados
+alink: color de los enlaces en el momento en que se hace clic
+background: es la imagen de fondo de la pagina 
+
+
+2) Ejemplifique el uso de los tags que se utilizan para indicar referencias a imágenes,
+referencias (a otra página y a la misma), tablas y listas.
+
+referencias a imagenes:
+
+   <img src="imagen.jpg" alt="Descripción de la imagen">
+
+referencias a otra pagina:
+
+    <a href="contacto.html">Contacto</a>
+
+referencias a la misma pagina:
+	<a href="#contacto">Ir a contacto</a>
+
+	...
+
+	<h2 id="contacto">Contacto</h2>.
+
+El #contacto indica que debe buscar dentro de la misma página el elemento cuyo id sea contacto.
+
+tablas:
+
+<table border="1" width="100%">
+	<caption> .... </caption>
+        <tr> 
+            <td>.... </td>
+        </tr>
+        
+    </table>
+    
+
+listas:
+	<ol>
+		<li>....</li>
+	</ol>
+
+
+
+3) Explique cómo se incluye un IFRAME en una página web y que sucede cuando accionamos los enlaces que están dentro de la información del frame.
+Un iframe (inline frame) permite incrustar otra página HTML dentro de una página web.
+	<iframe src="pagina.html" width="600" height="400"></iframe>
+La página principal sigue siendo la misma, pero dentro de ella aparece una ventana que muestra el contenido de otra página.
+Cuando hacemos clic en un enlace que está dentro del iframe, por defecto, la nueva página se carga dentro del mismo iframe, mientras que la página principal permanece sin cambios.
+
+4) ¿Qué es una imagen SVG? ¿Las imágenes SVG son compatibles con todos los navegadores? ¿Qué puede utilizar en una imagen SVG?
+Es un formato de imagen vectorial. A diferencia de una imagen rasterizada como JPG o PNG, una SVG está definida mediante elementos geométricos y texto, por lo que puede escalarse a distintos tamaños sin perder calidad.
+A diferencia de una imagen rasterizada como JPG o PNG, una SVG está definida mediante elementos geométricos y texto, por lo que puede escalarse a distintos tamaños sin perder calidad.
+En una imagen SVG se pueden utilizar elementos como <circle>, <rect>, <line>, <ellipse>, <polygon>, <path> y <text>.
+
+5) Indague cuales son los ventajas y desventajas de utilizar imágenes SVG. ¿En qué casos utilizaría una imagen SVG?    
+Ventajas de SVG
+No pierde calidad al escalar: al ser vectorial, podés agrandar o achicar la imagen sin que se pixele.
+Suele ocupar poco espacio: especialmente en gráficos simples, íconos y logos.
+Se puede modificar con CSS: podés cambiar colores, bordes, tamaños, etc.
+Se puede manipular con JavaScript: permite crear gráficos interactivos o animados.
+Es editable: al estar basado en XML, su contenido puede modificarse directamente mediante código.
+Es ideal para gráficos simples: logos, íconos, diagramas, gráficos estadísticos, etc.
+Permite animaciones: SVG tiene herramientas para animar sus elementos.
+❌ Desventajas de SVG
+No es ideal para fotografías: una fotografía tiene muchísimos detalles y sería poco práctico representarla mediante vectores.
+Puede volverse pesado: un SVG con una enorme cantidad de elementos y detalles puede tener un archivo muy grande y ser más costoso de procesar.
+Tiene mayor complejidad: para gráficos muy elaborados puede ser más difícil trabajar con SVG que con una imagen rasterizada.
+Puede requerir conocimientos de XML/CSS/JavaScript si queremos modificarlo o hacerlo interactivo.
+Puede presentar diferencias en funciones muy específicas dependiendo del navegador o de cómo se haya generado el SVG, aunque el soporte general actual es muy bueno.
+usaría SVG principalmente cuando necesito que una imagen mantenga su calidad independientemente del tamaño.
+
+Por ejemplo:
+
+Logos de empresas.
+Íconos de una página web.
+Botones y elementos gráficos de una interfaz.
