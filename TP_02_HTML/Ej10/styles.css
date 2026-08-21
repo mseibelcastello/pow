@@ -17,11 +17,16 @@ td {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: small;
+    border:  1px solid black;
 }
 
 table{
-    border:  1px solid;
+    border:  1px solid black;
     border-collapse: collapse;
     margin: auto;
     width: 80%;
+}
+
+ol{
+
 }
