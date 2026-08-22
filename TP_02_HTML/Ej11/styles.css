@@ -1,0 +1,68 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(110, 162, 240);
+    font-size: large;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.subtitulos{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    text-transform: uppercase;
+    text-align: left;
+}
+
+.titulo_tabla{
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: x-small;
+    text-transform: uppercase;
+    height: 20px;
+}
+
+.completar{
+    border: 1px solid black;
+    height: 20px;
+}
+
+table{
+    margin: auto;
+    width: 80%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    
+}
+
+.casillagrande{
+    border: 1px solid black;
+    height: 60px;
+}
+
+.titulotablaagenda{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color:rgb(110, 162, 240);
+    border: 1px solid black;
+
+}
+
+.casillas{
+    border: 1px solid black;
+    height: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    
+}
+
+.footertitulo{
+font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    width: 20%;
+    height: 50px;
+    background-color:grey;
+    border: 1px solid black;
+}
+
