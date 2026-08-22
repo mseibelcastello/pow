@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>JUEGO DE AJEDREZ</h1>
+    <canvas id="tablero" width="508" height="508"></canvas>
+
+    <script>
+        let canvas = document.getElementById("tablero");
+        let contexto = canvas.getContext("2d");
+
+        let tam = 50;
+        let contorno = 4;
+        let borde = 50;
+        let offset = contorno + borde;
+
+        contexto.fillStyle = "rgb(114,128,83)";
+        contexto.fillRect(0, 0, canvas.width, canvas.height);
+
+        contexto.strokeStyle = "rgb(75,78,45)";
+        contexto.lineWidth = contorno;
+        contexto.strokeRect(contorno/2, contorno/2, canvas.width - contorno, canvas.height - contorno);
+
+        for (let fila=0 ; fila<8 ; fila++){
+            for (let columna=0 ; columna<8 ; columna++){
+                if((fila+columna)%2 == 0){
+                    contexto.fillStyle = "rgb(228,240,200)";
+                }else{
+                    contexto.fillStyle = "rgb(115,133,85)";
+                }
+                contexto.fillRect(offset + columna*tam, offset + fila*tam, tam, tam);
+            }
+        }
+
+        let rutas = {
+            torreB:   "img/torre-b.png",
+            caballoB: "img/caballo-b.png",
+            alfilB:   "img/alfil-b.png",
+            damaB:    "img/dama-b.png",
+            reyB:     "img/rey-b.png",
+            peonB:    "img/peon-b.png",
+            torreN:   "img/torre-n.png",
+            caballoN: "img/caballo-n.png",
+            alfilN:   "img/alfil-n.png",
+            damaN:    "img/dama-n.png",
+            reyN:     "img/rey-n.png",
+            peonN:    "img/peon-n.png"
+        };
+
+        let imagenes = {};
+        let pendientes = Object.keys(rutas).length;
+
+        for (let nombre in rutas){
+            let img = new Image();
+            img.onload = function(){
+                pendientes--;
+                if(pendientes == 0){
+                    dibujarPiezas();
+                }
+            };
+            img.src = rutas[nombre];
+            imagenes[nombre] = img;
+        }
+
+        function dibujarPiezas(){
+            let mayores = ["torre","caballo","alfil","dama","rey","alfil","caballo","torre"];
+            for(let i=0 ; i<8 ; i++){
+                contexto.drawImage(imagenes[mayores[i]+"N"], offset + i*tam, offset,         tam, tam);
+                contexto.drawImage(imagenes[mayores[i]+"B"], offset + i*tam, offset + 7*tam, tam, tam);
+                contexto.drawImage(imagenes["peonN"],        offset + i*tam, offset + tam,    tam, tam);
+                contexto.drawImage(imagenes["peonB"],        offset + i*tam, offset + 6*tam,  tam, tam);
+            }
+        }
+    </script>
+
+</body>
+</html>
