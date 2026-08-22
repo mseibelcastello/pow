@@ -38,44 +38,21 @@
             }
         }
 
-        let rutas = {
-            torreB:   "img/torre-b.png",
-            caballoB: "img/caballo-b.png",
-            alfilB:   "img/alfil-b.png",
-            damaB:    "img/dama-b.png",
-            reyB:     "img/rey-b.png",
-            peonB:    "img/peon-b.png",
-            torreN:   "img/torre-n.png",
-            caballoN: "img/caballo-n.png",
-            alfilN:   "img/alfil-n.png",
-            damaN:    "img/dama-n.png",
-            reyN:     "img/rey-n.png",
-            peonN:    "img/peon-n.png"
-        };
+        let mayores = ["torre","caballo","alfil","dama","rey","alfil","caballo","torre"];
 
-        let imagenes = {};
-        let pendientes = Object.keys(rutas).length;
-
-        for (let nombre in rutas){
-            let img = new Image();
-            img.onload = function(){
-                pendientes--;
-                if(pendientes == 0){
-                    dibujarPiezas();
-                }
-            };
-            img.src = rutas[nombre];
-            imagenes[nombre] = img;
+        for(let i=0 ; i<8 ; i++){
+            pieza("img/"+mayores[i]+"-n.png", offset + i*tam, offset);          // negras arriba
+            pieza("img/"+mayores[i]+"-b.png", offset + i*tam, offset + 7*tam);  // blancas abajo
+            pieza("img/peon-n.png",           offset + i*tam, offset + tam);    // peones negros
+            pieza("img/peon-b.png",           offset + i*tam, offset + 6*tam);  // peones blancos
         }
 
-        function dibujarPiezas(){
-            let mayores = ["torre","caballo","alfil","dama","rey","alfil","caballo","torre"];
-            for(let i=0 ; i<8 ; i++){
-                contexto.drawImage(imagenes[mayores[i]+"N"], offset + i*tam, offset,         tam, tam);
-                contexto.drawImage(imagenes[mayores[i]+"B"], offset + i*tam, offset + 7*tam, tam, tam);
-                contexto.drawImage(imagenes["peonN"],        offset + i*tam, offset + tam,    tam, tam);
-                contexto.drawImage(imagenes["peonB"],        offset + i*tam, offset + 6*tam,  tam, tam);
-            }
+        function pieza(archivo, x, y){
+            let img = new Image();
+            img.onload = function(){
+                contexto.drawImage(img, x, y, tam, tam);
+            };
+            img.src = archivo;
         }
     </script>
 
