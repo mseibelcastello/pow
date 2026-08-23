@@ -1,0 +1,67 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: large;
+}
+
+h2 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: large;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    width: 80%;
+    text-align: justify;
+}
+
+.tabla_refrigerios{
+    border-collapse: collapse;
+    border: 1px black solid;
+    table-layout: auto;
+    width: 75%;
+}
+
+.tabla_ingresos{
+    border-collapse: collapse;
+    border: 1px black solid;
+    table-layout: auto;
+    width: 60%;
+    table-layout: fixed;
+}
+
+.tabla_x {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    height: 50px;
+    text-align: center;
+    
+
+}
+
+.tabla_y{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-align: left;
+}
+
+
+.contenido_tabla{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+    text-align: right;
+    height: 20px;
+
+}
+
+content{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: small;
+}
+
+.vacio {
+    border-bottom: none;
+}
+
