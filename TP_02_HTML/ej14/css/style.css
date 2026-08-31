@@ -1,0 +1,169 @@
+/*----------------------------------*/
+/*HEADER*/
+header {
+    display: flex;
+    background-color: #4cbe9c65;
+    color: #1da081;
+}
+
+header img {
+    margin-top: 1%;
+    height: 150px;
+    width: auto;
+}
+
+header h1 {
+    margin-left: 5%;
+    font-size: 75px;
+}
+
+/*----------------------------------*/
+/*FOOTER*/
+footer {
+    background: linear-gradient(to right, #1da081b2, #d98585a4);
+    padding: 2px;
+}
+
+footer p {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-style: italic;
+    font-size: medium;
+}
+
+/*----------------------------------*/
+/*NAVEGACION*/
+nav {
+    background: linear-gradient(to right, #d98585, #1da081);
+    display: flex;
+    padding: 10px 40px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+nav a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+}
+
+/*----------------------------------*/
+/*CARRUSEL*/
+
+.carrusel {
+    display: flex;      /*pone una imagen al lado de la otra*/
+    overflow: hidden;   /*oculta lo que se sale del conetenedor, para que se vea solo una imagen*/
+    margin: 0 5%;       
+}
+
+.carrusel img {
+    min-width: 100%;                            /*cada imagen ocupa todo el ancho del carrusel*/
+    height: 400px;
+    object-fit: cover;                          /*rellena sin deformar la imagen*/
+    animation: pasarImagenes 12s infinite;      /*usa la animacion pasarImagenes, dura 12segs y se repite infinito*/
+}
+
+@keyframes pasarImagenes {
+    0%, 20% {                           /*porcentaje deltiempo en laimagen*/
+        transform: translateX(0);       /*desplazamiento, se mueve un ancho completo (acumulativo) */
+    }
+
+    25%, 45% {
+        transform: translateX(-100%);
+    }
+
+    50%, 70% {
+        transform: translateX(-200%);
+    }
+
+    75%, 95% {
+        transform: translateX(-300%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/*----------------------------------*/
+/*TEXTOS*/
+
+h2 {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+}
+
+p {
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: justify;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-size: 20px;
+}
+
+
+/*----------------------------------*/
+/*FUENTES AÑADIDAS DE GOOGLE FONTS*/
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+/*----------------------------------*/
+/*PAGINAS INTERNAS*/
+
+main {
+    display: flex;
+    min-height: 60vh;
+}
+
+.nav-interno {
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-height: 100%;
+    gap: 10px;
+    width: 300px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 30px;  
+}
+
+.nav-interno a{
+    color: white;
+
+}
+
+.contenido-interno{
+    flex:1;
+}
+
+.contenido-interno img{
+    display: block;
+    margin: auto;
+}
+
+.titulo-interno {
+    font-size: 70px;
+    text-align: center;
+
+}
+
+
+.bloque-interno {
+    display: none;
+}
+
+.bloque-interno:target {
+    display: block;
+}
