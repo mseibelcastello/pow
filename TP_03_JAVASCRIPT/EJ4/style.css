@@ -1,0 +1,37 @@
+
+
+h1{
+    font-family: 'Times New Roman', Times, serif;
+    margin-left: 25%;
+}
+
+h2{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+p{
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cuerpo {
+    display: flex;
+    
+}
+
+aside{
+    width: 25%;
+}
+
+section{
+    width: 75%;
+    margin-right: 5%;
+}
+
+.secciones{
+    display:flex;
+}
+
+.columnas_texto{
+    width: 33%;
+    margin-right: 2%;
+}
