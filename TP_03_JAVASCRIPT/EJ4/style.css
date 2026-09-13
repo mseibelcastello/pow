@@ -5,13 +5,10 @@ h1{
     margin-left: 25%;
 }
 
-h2{
+h2, p{
     font-family: 'Times New Roman', Times, serif;
 }
 
-p{
-    font-family: 'Times New Roman', Times, serif;
-}
 
 .cuerpo {
     display: flex;
