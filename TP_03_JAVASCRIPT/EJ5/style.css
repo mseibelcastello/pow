@@ -1,0 +1,37 @@
+body {
+    background-color: greenyellow;
+    display: flex;
+}
+
+.boton {
+
+    background: linear-gradient(to right, white 90%, black 90%);
+  width: 50%;
+   margin-left: 5%;
+
+    text-align: left;
+    display: inline-block;
+    padding: 12px 24px;
+
+    margin-bottom: 2%;
+}
+
+a{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+aside{
+    width: 33%;
+    margin-top: 10%;
+    
+}
+
+div {
+    width: 66%;
+    margin-top: 5%;
+}
+
+p, h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: brown;
+}
