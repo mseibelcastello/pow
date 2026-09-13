@@ -1,0 +1,79 @@
+.primerpag{
+    background-color: cyan;
+    position: fixed;
+    padding: 3% 2%;
+    border-radius: 5px;
+    width: 38%;
+}
+
+
+.primerpag h1{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+.primerpag h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.primerpag label{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+.boton {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 80%;
+
+    margin: 0 auto; 
+    margin-bottom: 5px;
+    border-radius: 30px;
+    padding: 3%;
+}
+
+.positivo{
+    background-color: green;
+    color: black;
+}
+
+.negativo{
+    background-color: red;
+    color: white
+}
+
+.link_normal,
+.link_normal:visited{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+    color:inherit;
+}
+
+.segundapag{
+    background-color: yellow;
+    position: fixed;
+    padding: 3% 2%;
+    border-radius: 5px;
+    width: 38%;
+}
+
+.pedidos {
+    background-color: rgb(175, 164, 164);
+    margin: 5% 2%;
+    padding: 1%;
+}
+
+.pedidos p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+    font-size: small;
+}
+
+.pedidos h2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: medium;
+}
