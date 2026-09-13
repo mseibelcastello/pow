@@ -1,0 +1,86 @@
+.container {
+    background-image: url(res/fondo.jpg);
+}
+
+
+.caja {
+    height: 400px;
+    background-color: white;
+    display: flex;
+    padding: 10px;
+
+}
+
+.informacion {
+    position: relative;
+    width: 100%;    
+    background-size: cover;
+}
+
+.filtro {
+    inset: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(255, 166, 0, 0.712);
+
+}
+
+.sabina_serrat{
+    background-image: url(res/sabinaserrat.jpg);
+}
+
+.rafael{
+    background-image: url(res/rafael.jfif);
+}
+
+.mcenroe{
+    background-image: url(res/mcenroe.jfif);
+}
+
+.maximo{
+    background-image: url(res/maximo.jfif);
+}
+
+.titulo{
+    position: relative;
+    z-index: 2;
+    height: 15%;
+    margin-top: 10%;
+    background-color: rgba(0, 0, 0, 0.651);
+
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-style: bold;
+    
+}
+
+
+
+.texto {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    color: white;
+    font-style: italic;
+
+    margin-top: 15%;
+    
+}
+
+.boton {
+    background-color: black;
+width: 30%;
+    z-index: 3;
+    margin: 0 auto;
+
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-style: bold;
+    font-size: larger;
+    padding: 2%;
+    margin-top: 15%;
+}
+
+
+
