@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 11</title>
+</head>
+<body>
+    <h1>NAVEGADOR USADO</h1>
+    <h2 id="nav"></h2>
+    <h1>RESOLUCION DE PANTALLA</h1>
+    <h2 id="res"></h2>
+
+
+    <script>
+
+        
+        document.getElementById("nav").textContent = navigator.userAgent;
+
+        document.getElementById("res").textContent = screen.width + "x" + screen.height;
+    </script>
+</body>
+</html>
