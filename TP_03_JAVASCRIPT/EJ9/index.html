@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 9</title>
+</head>
+
+<body>
+    <h1>FECHA Y HORA</h1>
+    <h2 id="fecha"></h2>
+
+
+    <script>
+
+        function mostrarFecha() {
+            let fecha = new Date();
+
+            let dia = fecha.getDate();
+            let hora = fecha.getHours();
+            let minutos = fecha.getMinutes();
+
+            document.getElementById("fecha").textContent =
+                "Día: " + dia + " Hora: " + hora + ":" + minutos;
+        }
+
+        mostrarFecha();
+
+        setInterval(mostrarFecha, 60000);
+
+
+
+
+    </script>
+
+</body>
+
+</html>
