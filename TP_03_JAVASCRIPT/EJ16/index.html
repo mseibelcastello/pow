@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO16</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>VERIFICACION DE VALIDEZ DE CUIT/CUIL</h1>
+    <H2>Ingrese su CUIT o CUIL</H2>
+    <h3>Separadao por "-". Por ejemplo: 11-22222222-33</h3>
+    <input type="text" id="nro">
+    <button id="val">VALIDAR</button>
+
+
+    <script>
+        let nro = document.getElementById("nro");
+        let boton = document.getElementById("val");
+
+
+
+        boton.addEventListener("click", function () {
+
+            let partes = nro.value.split("-");
+
+            let tipo = partes[0];
+            let dni = partes[1];
+            let validador = partes[2];
+
+
+            validarTipo(tipo);
+            validarDni(dni);
+            validarValidador(tipo, dni, validador);
+        })
+
+        function validarTipo(tipo) {
+            if (tipo == "20" || tipo == "23" || tipo == "24" || tipo == "27" || tipo == "30" || tipo == "33" || tipo == "34") {
+                return
+            } else {
+                alert("Tipo no valido");
+            }
+
+        }
+
+        function validarDni(dni) {
+            if (dni.length != 8) {
+                alert("DNI invalido");
+            }
+            return;
+        }
+
+        function validarValidador(tipo, dni, validador) {
+            let num = tipo + dni;
+            let numero = num.split("");
+            let serie = [5, 4, 3, 2, 7, 6, 5, 4, 3, 2];
+
+            let valObtenido = 0;
+            let validadorEsperado=0;
+
+            for (let i = 0; i < numero.length; i++) {
+                valObtenido += numero[i] * serie[i];
+
+            }
+
+            let modulo=valObtenido%11;
+
+            if(modulo ==0){
+                validadorEsperado=0;
+            }else if (modulo>=2 && modulo<10 ){
+                validadorEsperado=11 - modulo;
+            }else if(modulo==1){
+                validadorEsperado=9;
+            }
+
+
+console.log("Validador ingresado:", validador);
+console.log("Validador esperado:", validadorEsperado);
+
+            if(validadorEsperado!=validador){
+                alert("Validador invalido");
+            }else{
+                alert("CUIL/CUIT valido!");
+            }
+        }
+
+    </script>
+</body>
+
+</html>
