@@ -1,0 +1,55 @@
+body {
+    width: 30%;
+    margin: 0 auto;
+}
+
+h1 {
+    width: 315px;
+    text-align: center;
+    background-color: #e0e0e0;
+    padding: 10px;
+    margin-left: -30px;
+    margin-bottom: 10px;
+}
+
+.pantalla {
+    width: 255px;
+    height: 60px;
+    background-color: #333;
+    color: white;
+    font-size: 28px;
+    text-align: right;
+    padding: 10px;
+
+    margin-bottom: 10px;
+}
+
+.boton {
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    margin-bottom: 2px;
+    margin-left: 2px;
+    color: white;
+    text-align: center;
+    line-height: 60px;
+}
+
+.numero {
+    background-color: #2196F3;
+}
+
+.operacion {
+    background-color: #8B0000;
+}
+
+.ce,
+.c {
+    background-color: #FF9800;
+}
+
+.igual {
+    background-color: #4CAF50;
+}
