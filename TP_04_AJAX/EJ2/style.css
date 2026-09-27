@@ -1,0 +1,52 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main.container {
+    flex: 1 0 auto;
+    max-width: 640px;
+}
+
+/* bola del numero generado */
+#num_random {
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, #f8bbd0, #c2185b 70%);
+    color: #fff;
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, .35);
+    box-shadow: 0 6px 18px rgba(194, 24, 91, .45);
+}
+
+/* configuracion guardida: los <p> que escribe leer_limites() */
+#datos {
+    background: #fce4ec;
+    border-left: 4px solid #e91e63;
+    border-radius: 4px;
+    padding: 8px 12px;
+    margin-top: 16px;
+}
+
+#datos p {
+    margin: 2px 0;
+    font-weight: 600;
+    color: #880e4f;
+}
+
+/* numeros generados: los <p> que escribe mostrar_numeros() */
+#numeros p {
+    display: inline-block;
+    margin: 4px;
+    padding: 2px 16px;
+    border-radius: 18px;
+    background: #f8bbd0;
+    color: #880e4f;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
