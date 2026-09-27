@@ -11,17 +11,17 @@
     <script src="script.js"></script>
 </head>
 
-<body class="pink lighten-5">
-    <nav class="pink darken-3 z-depth-3">
+<body>
+    <nav>
         <div class="container">
             <a href="#" class="brand-logo center"><i class="material-icons">casino</i> Turnero aleatorio</a>
         </div>
     </nav>
 
     <main class="container">
-        <div class="card z-depth-2">
+        <div class="card">
             <div class="card-content">
-                <span class="card-title pink-text"><i class="material-icons left">settings</i> Configuracion</span>
+                <span class="card-title"><i class="material-icons left">settings</i> Configuracion</span>
                 <div class="row">
                     <div class="col s6">
                         <div class="input-field">
@@ -36,45 +36,41 @@
                         </div>
                     </div>
                 </div>
-                <button class="btn pink darken-2 waves-effect waves-light" onclick="guardar_configuracion()">
+                <button class="btn waves-effect waves-light" onclick="guardar_configuracion()">
                     <i class="material-icons left">save</i> Guardar
                 </button>
-                <button class="btn pink lighten-3 pink-text waves-effect waves-light" onclick="leer_limites()">
+                <button class="btn waves-effect waves-light" onclick="leer_limites()">
                     <i class="material-icons left">visibility</i> Ver
                 </button>
-                <button class="btn grey lighten-3 grey-text waves-effect waves-light" onclick="reset_configuracion()">
+                <button class="btn waves-effect waves-light" onclick="reset_configuracion()">
                     <i class="material-icons left">delete</i> Resetear
                 </button>
                 <div id="datos"></div>
             </div>
         </div>
 
-        <div class="card z-depth-2 center-align">
+        <div class="card center-align">
             <div class="card-content">
-                <span class="card-title pink-text">Numero generado</span>
-                <div id="num_random"></div>
-                <button class="btn-large pink darken-2 waves-effect waves-light" onclick="generar_numero()">
+                <span class="card-title">Numero generado</span>
+                <div id="num_random">--</div>
+                <button class="btn waves-effect waves-light" onclick="generar_numero()">
                     <i class="material-icons left">casino</i> Generar numero
                 </button>
             </div>
         </div>
 
-        <div class="card z-depth-2">
+        <div class="card">
             <div class="card-content">
-                <span class="card-title pink-text"><i class="material-icons left">list_alt</i> Numeros generados</span>
+                <span class="card-title"><i class="material-icons left">list_alt</i> Numeros generados</span>
                 <div id="numeros" class="center-align"></div>
             </div>
-            <div class="card-action">
-                <button class="btn pink lighten-3 pink-text waves-effect waves-light" onclick="mostrar_numeros()">
-                    <i class="material-icons left">refresh</i> Ver numeros generados
-                </button>
-            </div>
+
         </div>
     </main>
 
-    <footer class="page-footer pink darken-3">
+    <footer class="page-footer">
         <div class="footer-copyright">
-            <div class="container">TP_04 AJAX - EJ2</div>
+            <div class="container">Trabajo Practico 4 - Ejercicio 2 - PERALTA Damaris, SEIBEL Micaela</div>
         </div>
     </footer>
 </body>

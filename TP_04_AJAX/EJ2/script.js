@@ -56,6 +56,11 @@ function guardar_limites(min, max, numeros) {
     }
 
     var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            mostrar_numeros();
+        }
+    }
     xmlhttp2.open("POST", "guardar_datos.php", true);
     xmlhttp2.send(JSON.stringify(datos));
 }
@@ -111,7 +116,7 @@ function leer_numeros(nro) {
                 return;
             }
 
-            document.getElementById("num_random").innerHTML = nro;
+            mostrar_numero(nro);
             guardar_numeros(nro, numeros);
         }
     }
@@ -129,6 +134,11 @@ function guardar_numeros(nro, numeros) {
     };
 
     var xmlhttp2 = new XMLHttpRequest();
+    xmlhttp2.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            mostrar_numeros();
+        }
+    }
     xmlhttp2.open("POST", "guardar_datos.php", true);
     xmlhttp2.send(JSON.stringify(datos));
 }
@@ -153,13 +163,20 @@ function mostrar_numeros() {
         if (this.readyState == 4 && this.status == 200) {
             var myArr = JSON.parse(this.responseText);
             var numeros = myArr["numeros"];
+            var min = myArr["minimo"];
+            var max = myArr["maximo"];
             var texto = "";
 
-            for (var i = 0; i < numeros.length; i++) {
-                texto += "<p>" + numeros[i].numero + "</p>";
-            }
-
-            if (numeros.length == 0) {
+            if (min != null && max != null) {
+                // se dibuja todo el rango, los que ya salieron van marcados
+                for (var i = min; i <= max; i++) {
+                    if (esta_generado(numeros, i)) {
+                        texto += "<span class='salio'>" + i + "</span>";
+                    } else {
+                        texto += "<span>" + i + "</span>";
+                    }
+                }
+            } else {
                 texto = "<p>Todavia no se genero ningun numero</p>";
             }
 
@@ -169,4 +186,14 @@ function mostrar_numeros() {
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
+}
+
+// muestra el numero en el marcador, con la animacion del pliegue
+function mostrar_numero(nro) {
+    var marcador = document.getElementById("num_random");
+
+    marcador.classList.remove("girando");
+    marcador.offsetWidth;      // fuerza el reflow para que la animacion reinicie
+    marcador.classList.add("girando");
+    marcador.innerHTML = nro;
 }

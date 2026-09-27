@@ -1,52 +1,231 @@
+/* ==========================================================
+   TURNERO ALEATORIO - tema consola
+   fondo oscuro, tipografia monoespaciada, marcador split-flap
+   ========================================================== */
+
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: #141414;
+    color: #e0e0e0;
+    font-family: Consolas, 'Courier New', monospace;
+    color-scheme: dark;
 }
 
 main.container {
     flex: 1 0 auto;
-    max-width: 640px;
+    max-width: 760px;
 }
 
-/* bola del numero generado */
-#num_random {
-    width: 150px;
-    height: 150px;
-    line-height: 150px;
-    margin: 20px auto;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #f8bbd0, #c2185b 70%);
-    color: #fff;
-    font-size: 4rem;
-    font-weight: 700;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, .35);
-    box-shadow: 0 6px 18px rgba(194, 24, 91, .45);
+/* ---------- navbar ---------- */
+
+nav {
+    background: #0b0b0b;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .6);
 }
 
-/* configuracion guardida: los <p> que escribe leer_limites() */
+.brand-logo {
+    color: #ff8fb1;
+}
+
+/* ---------- secciones: sin cards, solo separadores ---------- */
+
+.card {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.card .card-content {
+    padding: 16px 8px 24px;
+}
+
+.card .card-content .card-title {
+    color: #ff8fb1;
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    border-bottom: 1px dashed #676767;
+    padding-bottom: 8px;
+}
+
+.card .card-content .card-title i {
+    line-height: 1.6rem;
+}
+
+/* ---------- inputs ---------- */
+
+.input-field input[type="number"] {
+    color: #ff8fb1;
+    background: transparent;
+    border-bottom: 1px solid #4a4a4a;
+}
+
+.input-field input[type="number"]:focus {
+    background: transparent;
+    border-bottom: 2px solid #ff8fb1;
+}
+
+.input-field label {
+    color: #b89aa3;
+}
+
+.input-field input:focus + label {
+    color: #ff8fb1;
+}
+
+/* ---------- botones ---------- */
+
+.btn {
+    background: transparent;
+    color: #ff8fb1;
+    border: 1px solid #ff8fb1;
+    box-shadow: none;
+}
+
+.btn:hover {
+    background: rgba(255, 143, 177, .12);
+}
+
+.btn:focus {
+    background: rgba(255, 143, 177, .2);
+}
+
+/* ---------- configuracion guardida ---------- */
+
 #datos {
-    background: #fce4ec;
-    border-left: 4px solid #e91e63;
-    border-radius: 4px;
+    background: #1c1c1c;
+    border-left: 3px solid #ff8fb1;
+    border-radius: 2px;
     padding: 8px 12px;
     margin-top: 16px;
 }
 
 #datos p {
     margin: 2px 0;
-    font-weight: 600;
-    color: #880e4f;
+    font-weight: 700;
 }
 
-/* numeros generados: los <p> que escribe mostrar_numeros() */
-#numeros p {
+/* ---------- marcador del numero generado ---------- */
+
+#num_random {
+    position: relative;
+    width: 100%;
+    max-width: 280px;
+    height: 110px;
+    line-height: 110px;
+    margin: 12px auto;
+    border: 2px solid #f48fb1;
+    border-radius: 6px;
+    background: #1c1c1c;
+    color: #ff8fb1;
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 4.5rem;
+    font-weight: 700;
+    letter-spacing: .2em;
+    text-indent: .2em;
+    text-shadow: 0 0 12px rgba(255, 143, 177, .8);
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, .9), 0 4px 12px rgba(0, 0, 0, .4);
+    overflow: hidden;
+}
+
+/* sombra de la aleta superior: efecto de pliegue */
+#num_random::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(#000 0 49.5%, transparent 49.5% 50.5%, #000 50.5% 100%);
+    opacity: .3;
+}
+
+/* linea del pliegue */
+#num_random::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    margin-top: -1px;
+    background: #000;
+    opacity: .9;
+}
+
+/* animacion que dispara script.js con la clase "girando" */
+@keyframes girar {
+    0% {
+        transform: perspective(300px) rotateX(-90deg);
+    }
+
+    60% {
+        transform: perspective(300px) rotateX(10deg);
+    }
+
+    100% {
+        transform: perspective(300px) rotateX(0);
+    }
+}
+
+#num_random.girando {
+    animation: girar .35s ease-out;
+}
+
+/* ---------- tablero de numeros ---------- */
+
+#numeros {
+    margin-top: 12px;
+    padding: 10px 6px;
+    border: 1px dashed #676767;
+    border-radius: 4px;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+#numeros span {
     display: inline-block;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
     margin: 4px;
-    padding: 2px 16px;
-    border-radius: 18px;
-    background: #f8bbd0;
-    color: #880e4f;
-    font-size: 1.2rem;
-    font-weight: 600;
+    border: 1px solid #676767;
+    border-radius: 4px;
+    background: #1c1c1c;
+    color: #b89aa3;
+    font-family: Consolas, 'Courier New', monospace;
+    font-weight: 700;
+    text-align: center;
+}
+
+#numeros span.salio {
+    border-color: #ff8fb1;
+    background: #141414;
+    color: #ff8fb1;
+    text-shadow: 0 0 8px rgba(255, 143, 177, .8);
+    box-shadow: inset 0 0 12px rgba(255, 143, 177, .18);
+}
+
+#numeros p {
+    margin: 8px 0;
+    color: #b89aa3;
+    font-style: italic;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    background: #0b0b0b;
+    padding-top: 0;
+}
+
+.footer-copyright {
+    min-height: 0;
+    padding: 4px 0;
+    background: transparent;
+    color: #b89aa3;
+    font-size: 0.8rem;
 }
