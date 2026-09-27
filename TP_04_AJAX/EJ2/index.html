@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 2</title>
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <h1>TURNERO ALEATORIO</h1>
+
+    <br>
+    <h2>Configurar minimos y maximos</h2>
+    <br>
+
+    <h3>Limite minimo</h3>
+    <input type="text" id="minimo">
+    <br>
+
+    <h3>Limite maximo</h3>
+    <input type="text" id="maximo">
+    <br>
+    <button onclick="guardar_configuracion()">Guardar configuracion ingresada</button>
+
+
+    <button onclick="leer_limites()">Ver configuracion</button>
+    <div id="datos"></div>
+    <br>
+    <button onclick="reset_configuracion()">Resetear configuracion</button>
+
+    <br>
+    <h2>numero generado</h2>
+    <button onclick="generar_numero()" >Generar numero</button>
+    <div id="num_random"></div>
+
+    <button onclick="mostrar_numeros()">Ver numeros generados</button>
+    <div id="numeros"></div>
+
+</body>
+
+</html>

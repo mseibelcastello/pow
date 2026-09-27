@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="mostrar_provincias()">Ver</button>
+    <div id="provincias"></div>
+    <div id="localidades"></div>
+
+    <script>
+        /*
+        function mostrar_provincias() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://apis.datos.gob.ar/georef/api/provincias";
+            
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    //myFunction(myArr);
+                    texto="<table border=1><tr><th>nombre</tr>";
+                    for(i=0;i<myArr.cantidad;i++){
+                    texto+="<tr><td><a href='https://apis.datos.gob.ar/georef/api/localidades?provincia="+myArr.provincias[i].nombre+"'>"+myArr.provincias[i].nombre+"</a></td></tr>\n";
+                    }
+                    texto+="</table>";
+                    document.getElementById("provincias").innerHTML=texto;
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+*/
+        function mostrar_provincias() {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://apis.datos.gob.ar/georef/api/provincias";
+            
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    //myFunction(myArr);
+                    texto="<select name='provincia' onchange='mostrar_localidades(this.value)'> <option>Seleccione</option>";
+                    for(i=0;i<myArr.cantidad;i++){
+                    texto+="<option value='"+myArr.provincias[i].nombre+"'>"+myArr.provincias[i].nombre+"</option>\n";
+                    }
+                    texto+="</select>";
+                    document.getElementById("provincias").innerHTML=texto;
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+
+        function mostrar_localidades(provincia) {
+            var xmlhttp = new XMLHttpRequest();
+            var url = "https://apis.datos.gob.ar/georef/api/localidades?provincia="+provincia+"&max=10";
+            
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+                    //myFunction(myArr);
+                    texto="<table border=1><tr><th>nombre</tr>";
+                    for(i=0;i<myArr.cantidad;i++){
+                    texto+="<tr><td>"+myArr.localidades[i].nombre+"</a></td></tr>\n";
+                    }
+                    texto+="</table>";
+                    document.getElementById("localidades").innerHTML=texto;
+                }
+            };
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+    </script>
+</body>
+
+</html>
