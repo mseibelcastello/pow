@@ -65,8 +65,8 @@ function reset_configuracion() {
 }
 
 ///-----------NUMEROS---------
-
 function generar_numero() {
+
     var limites = obtener_inputs_limites();
     var min = limites.minimo;
     var max = limites.maximo;
@@ -86,32 +86,33 @@ function leer_numeros(nro) {
             var min = myArr["minimo"];
             var max = myArr["maximo"];
 
+            // se guardo la configuracion?
+            if (min == null || max == null) {
+                alert("primero guarda la configuracion");
+                return;
+            }
+
             // se generaron todos? 
-            if (numeros.length == max - min + 1) {
+            var disponibles = 0;
+            for (var i = min; i <= max; i++) {
+                if (!esta_generado(numeros, i)) {
+                    disponibles++;
+                }
+            }
+
+            if (disponibles == 0) {
                 alert("todos los números están generados");
                 return;
             }
 
             // ya se genero el numero? 
-            var repetido = false;
-            for (var i = 0; i < numeros.length; i++) {
-                if (numeros[i].numero == nro) {
-                    repetido = true;
-                }
+            if (esta_generado(numeros, nro)) {
+                generar_numero();
+                return;
             }
 
-            if (repetido == false) {
-                document.getElementById("num_random").innerHTML = nro;
-                guardar_numeros(nro, numeros);
-            } else {
-                var nuevo = nro + 1;
-                if (nuevo > max) {
-                    nuevo = nro - 1;
-                }
-
-                document.getElementById("num_random").innerHTML = nuevo;
-                guardar_numeros(nuevo, numeros);
-            }
+            document.getElementById("num_random").innerHTML = nro;
+            guardar_numeros(nro, numeros);
         }
     }
 
@@ -131,6 +132,18 @@ function guardar_numeros(nro, numeros) {
     xmlhttp2.open("POST", "guardar_datos.php", true);
     xmlhttp2.send(JSON.stringify(datos));
 }
+
+function esta_generado(numeros, nro) {
+    for (var i = 0; i < numeros.length; i++) {
+        if (numeros[i].numero == nro) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
 
 function mostrar_numeros() {
     var xmlhttp = new XMLHttpRequest();
