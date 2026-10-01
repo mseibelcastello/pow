@@ -244,6 +244,22 @@ nav .brand-logo i {
     color: #e08a45;
 }
 
+.contador-resultados {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 999px;
+    background: var(--naranja-claro);
+    color: #a85a25;
+    font-size: 0.85rem;
+    font-weight: 700;
+    line-height: 1.6;
+    white-space: nowrap;
+}
+
+.contador-resultados:empty {
+    display: none;
+}
+
 .girando {
     animation: girar 1.2s linear infinite;
 }

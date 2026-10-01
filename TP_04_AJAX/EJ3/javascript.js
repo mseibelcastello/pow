@@ -4,6 +4,7 @@ cargar_ingredientes();
 
 function mostrar_resultados(url) {
     mostrar_cargando("Buscando recetas...");
+    limpiar_cantidad();
 
     var xmlhttp = new XMLHttpRequest();
 
@@ -43,6 +44,7 @@ function mostrar_resultados(url) {
 
             }
             document.getElementById("resultados_buscar").innerHTML = texto;
+            mostrar_cantidad(meals.length);
 
             if (meals.length == 0) {
                 mostrar_sin_resultados();
@@ -311,6 +313,18 @@ function mostrar_cargando(texto) {
 
 function limpiar_estado() {
     document.getElementById("estado").innerHTML = "";
+}
+
+function mostrar_cantidad(cantidad) {
+    if (cantidad == 1) {
+        document.getElementById("contador_resultados").innerHTML = "1 receta";
+    } else {
+        document.getElementById("contador_resultados").innerHTML = cantidad + " recetas";
+    }
+}
+
+function limpiar_cantidad() {
+    document.getElementById("contador_resultados").innerHTML = "";
 }
 
 function mostrar_sin_resultados() {
