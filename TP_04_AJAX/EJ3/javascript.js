@@ -5,7 +5,7 @@ cargar_ingredientes();
 function mostrar_resultados(url) {
     var xmlhttp = new XMLHttpRequest();
 
-    
+
     xmlhttp.onreadystatechange = function () {
 
         if (this.readyState == 4 && this.status == 200) {
@@ -18,6 +18,8 @@ function mostrar_resultados(url) {
                 texto += "<div>";
                 texto += "<h3>" + myArr.meals[i].strMeal + "</h3>";
                 texto += "<img src='" + myArr.meals[i].strMealThumb + "'>";
+                texto += "<button onclick='mostrar_instrucciones(" + myArr.meals[i].idMeal + ")'>Ver instrucciones</button>";
+                texto += "<button onclick='mostrar_ingredientes(" + myArr.meals[i].idMeal + ")'>Ver ingredientes</button>";
                 texto += "</div>";
 
             }
@@ -29,7 +31,6 @@ function mostrar_resultados(url) {
 
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
-
 
 }
 
@@ -128,6 +129,71 @@ function cargar_ingredientes() {
             document.getElementById("ingredientes").innerHTML = texto;
         }
     }
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function mostrar_instrucciones(id) {
+
+    var xmlhttp = new XMLHttpRequest();
+
+    var url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
+
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var myArr = JSON.parse(this.responseText);
+            var receta = myArr.meals[0];
+            var texto = "";
+
+            texto += "<h2>" + receta.strMeal + "</h2>";
+            texto += "<img src='" + receta.strMealThumb + "'>";
+            texto += "<p><b>Categoría:</b> " + receta.strCategory + "</p>";
+            texto += "<p><b>Área:</b> " + receta.strArea + "</p>";
+            texto += "<p><b>Instrucciones:</b></p>";
+            texto += "<p>" + receta.strInstructions + "</p>";
+
+            document.getElementById("detalle").innerHTML = texto;
+        }
+    }
+
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+}
+
+function mostrar_ingredientes(id) {
+
+    var xmlhttp = new XMLHttpRequest();
+
+    var url = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + id;
+
+    xmlhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+
+            var myArr = JSON.parse(this.responseText);
+            var receta = myArr.meals[0];
+
+            var texto = "<table border=1>";
+            texto += "<tr><th>Nombre</th><th>Cantidad</th></tr>";
+
+            for (i = 1; i <= 20; i++) {
+
+                var ingrediente = receta["strIngredient" + i];
+                var cantidad = receta["strMeasure" + i];
+
+                if (ingrediente != "") {
+                    texto += "<tr>";
+                    texto += "<td>" + ingrediente + "</td>";
+                    texto += "<td>" + cantidad + "</td>";
+                    texto += "</tr>";
+                }
+            }
+
+            texto += "</table>";
+
+            document.getElementById("detalle").innerHTML = texto;
+        }
+    }
+
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }
