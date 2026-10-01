@@ -1,63 +1,39 @@
 {
-    "minimo": 5,
-    "maximo": 24,
+    "minimo": 1,
+    "maximo": 100,
     "numeros": [
         {
-            "numero": 12
+            "numero": 32
+        },
+        {
+            "numero": 51
+        },
+        {
+            "numero": 43
+        },
+        {
+            "numero": 74
+        },
+        {
+            "numero": 37
         },
         {
             "numero": 6
         },
         {
-            "numero": 7
+            "numero": 87
         },
         {
-            "numero": 11
+            "numero": 72
         },
         {
-            "numero": 9
+            "numero": 65
         },
         {
-            "numero": 5
-        },
-        {
-            "numero": 13
-        },
-        {
-            "numero": 17
-        },
-        {
-            "numero": 21
-        },
-        {
-            "numero": 18
-        },
-        {
-            "numero": 23
+            "numero": 25
         },
         {
             "numero": 14
-        },
-        {
-            "numero": 15
-        },
-        {
-            "numero": 8
-        },
-        {
-            "numero": 10
-        },
-        {
-            "numero": 19
-        },
-        {
-            "numero": 16
-        },
-        {
-            "numero": 20
-        },
-        {
-            "numero": 22
         }
     ]
 }

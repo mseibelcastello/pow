@@ -1,0 +1,467 @@
+/* ==========================================================
+   RECETARIO INTERACTIVO
+   paleta pastel: naranja, verde y amarillo
+   ========================================================== */
+
+:root {
+    --naranja: #ffb877;
+    --naranja-claro: #ffe3c7;
+    --verde: #9bd8a8;
+    --verde-claro: #ddf3e2;
+    --amarillo: #ffe28a;
+    --amarillo-claro: #fff6d6;
+    --texto: #4a3f35;
+    --texto-suave: #8a7b6b;
+    --linea: #ebd9be;
+    --sombra: 0 8px 22px rgba(190, 150, 105, .18);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(160deg, #fffdf4 0%, #f3faf3 45%, #fff6ea 100%);
+    background-attachment: fixed;
+    color: var(--texto);
+}
+
+main.container {
+    flex: 1 0 auto;
+    padding-bottom: 16px;
+}
+
+/* ---------- navbar ---------- */
+
+nav {
+    height: 64px;
+    background: linear-gradient(90deg, var(--naranja-claro) 0%, var(--amarillo-claro) 50%, var(--verde-claro) 100%);
+    box-shadow: 0 2px 12px rgba(190, 150, 105, .25);
+}
+
+.nav-wrapper {
+    position: relative;
+    height: 64px;
+}
+
+nav .brand-logo {
+    position: static;
+    display: block;
+    height: auto;
+    padding: 0;
+    color: #7a5b34;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 64px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+nav .brand-logo i {
+    vertical-align: middle;
+}
+
+/* ---------- cards de las secciones ---------- */
+
+.card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    margin: 24px 0;
+}
+
+.card .card-content {
+    padding: 24px;
+}
+
+.card .card-content .titulo-seccion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 14px;
+    border-bottom: 2px dashed #f0e4ce;
+    color: var(--texto);
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.panel-buscar {
+    border-top: 4px solid var(--verde);
+}
+
+.panel-resultados {
+    border-top: 4px solid var(--naranja);
+}
+
+.panel-detalle {
+    border-top: 4px solid var(--amarillo);
+}
+
+/* ---------- inputs ---------- */
+
+.input-field input[type="text"] {
+    color: var(--texto);
+    border-bottom: 2px solid var(--linea);
+}
+
+.input-field input[type="text"]:focus {
+    border-bottom-color: var(--verde);
+    box-shadow: none;
+}
+
+.input-field label {
+    color: var(--texto-suave);
+}
+
+.input-field input[type="text"]:focus+label {
+    color: var(--verde);
+}
+
+.btn-buscar {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 20px;
+}
+
+.filtros {
+    margin-bottom: -20px;
+}
+
+/* ---------- desplegables de los selects ---------- */
+
+.select-wrapper input.select-dropdown {
+    height: 2.6rem;
+    line-height: 2.6rem;
+    border-bottom: 2px solid var(--linea);
+}
+
+.input-field input.select-dropdown:focus {
+    border-bottom-color: var(--verde);
+    box-shadow: none;
+}
+
+.input-field input.select-dropdown+label {
+    color: var(--texto-suave);
+}
+
+.input-field input.select-dropdown:focus+label {
+    color: var(--verde);
+}
+
+.dropdown-content.select-dropdown {
+    position: absolute;
+    height: auto;
+    max-height: 320px;
+    min-height: 0;
+    line-height: normal;
+    margin: 6px 0 0;
+    border: 0;
+    border-radius: 14px;
+    overflow-y: auto;
+    background: #fff;
+    box-shadow: var(--sombra);
+}
+
+.dropdown-content.select-dropdown li {
+    min-height: 44px;
+    color: var(--texto);
+}
+
+.dropdown-content.select-dropdown li:hover {
+    background-color: var(--amarillo-claro);
+}
+
+.dropdown-content.select-dropdown li.selected {
+    background-color: var(--verde);
+    color: #fff;
+}
+
+/* ---------- botones ---------- */
+
+.btn {
+    background-color: var(--verde);
+    color: #fff;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: .05em;
+}
+
+.btn:hover {
+    background-color: #7fc98f;
+}
+
+.btn:focus {
+    background-color: #7fc98f;
+}
+
+.btn.btn-naranja {
+    background-color: var(--naranja);
+}
+
+.btn.btn-naranja:hover,
+.btn.btn-naranja:focus {
+    background-color: #f5a45c;
+}
+
+.btn.btn-amarillo {
+    background-color: var(--amarillo);
+    color: #6b5230;
+}
+
+.btn.btn-amarillo:hover,
+.btn.btn-amarillo:focus {
+    background-color: #f7d160;
+}
+
+/* ---------- mensajes de estado ---------- */
+
+.estado {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 8px 0 20px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-weight: 600;
+}
+
+.estado i {
+    font-size: 22px;
+}
+
+.estado.cargando {
+    background: var(--verde-claro);
+    color: #3f7f53;
+}
+
+.estado.vacio {
+    background: var(--naranja-claro);
+    color: #a85a25;
+}
+
+.estado.vacio i {
+    color: #e08a45;
+}
+
+.girando {
+    animation: girar 1.2s linear infinite;
+}
+
+@keyframes girar {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- tarjetas de resultados ---------- */
+
+.tarjetas {
+    margin-bottom: 0;
+}
+
+.tarjetas > .col {
+    display: flex;
+}
+
+.result-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 0 20px;
+    overflow: hidden;
+    border-radius: 18px;
+    box-shadow: var(--sombra);
+    border-top: 4px solid var(--naranja);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(190, 150, 105, .3);
+}
+
+.result-card .card-image {
+    height: 180px;
+    background: var(--amarillo-claro);
+}
+
+.result-card .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.result-card .card-content {
+    flex: 1 1 auto;
+    padding: 18px;
+}
+
+.result-card .card-title {
+    margin: 0 0 14px;
+    color: var(--texto);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.45rem;
+}
+
+.result-card .card-action {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 18px 20px;
+}
+
+.result-card .card-action .btn {
+    margin-right: 0;
+}
+
+/* ---------- etiquetas ---------- */
+
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.etiqueta {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: .78rem;
+    font-weight: 600;
+}
+
+.etiqueta i {
+    font-size: 15px;
+}
+
+.etiqueta.area {
+    background: var(--naranja-claro);
+    color: #b4652a;
+}
+
+.etiqueta.categoria {
+    background: var(--verde-claro);
+    color: #3f7f53;
+}
+
+/* ---------- detalle de la receta ---------- */
+
+#detalle h2 {
+    margin: 0 0 14px;
+    color: var(--texto);
+    font-size: 1.7rem;
+    font-weight: 700;
+    line-height: 2.1rem;
+}
+
+#detalle img {
+    width: 260px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: var(--sombra);
+    margin: 0 0 18px;
+}
+
+#detalle p {
+    margin: 4px 0;
+}
+
+#detalle p.instrucciones {
+    margin-top: 18px;
+    padding: 18px 22px;
+    background: var(--amarillo-claro);
+    border-left: 5px solid var(--amarillo);
+    border-radius: 12px;
+    line-height: 1.8;
+    white-space: pre-line;
+}
+
+/* ---------- tabla de ingredientes ---------- */
+
+.tabla-ingredientes {
+    width: 100%;
+    margin-top: 8px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+}
+
+.tabla-ingredientes th {
+    padding: 14px 18px;
+    background: var(--verde);
+    color: #fff;
+    font-weight: 700;
+    text-align: left;
+}
+
+.tabla-ingredientes tr:first-child th:first-child {
+    border-radius: 14px 0 0 0;
+}
+
+.tabla-ingredientes tr:first-child th:last-child {
+    border-radius: 0 14px 0 0;
+}
+
+.tabla-ingredientes tr:nth-child(even) {
+    background: var(--verde-claro);
+}
+
+.tabla-ingredientes td {
+    padding: 12px 18px;
+    border-bottom: 1px solid #f0e9da;
+}
+
+.tabla-ingredientes tr:last-child td {
+    border-bottom: 0;
+}
+
+.tabla-ingredientes td:last-child {
+    color: var(--texto-suave);
+    text-align: right;
+}
+
+/* ---------- footer ---------- */
+
+.page-footer {
+    padding-top: 0;
+    background: linear-gradient(90deg, var(--verde-claro), var(--amarillo-claro), var(--naranja-claro));
+}
+
+.footer-copyright {
+    min-height: 0;
+    padding: 10px 0;
+    background: transparent;
+    color: var(--texto-suave);
+    font-size: .8rem;
+    text-align: center;
+}
+
+/* ---------- pantallas chicas ---------- */
+
+@media only screen and (max-width: 600px) {
+
+    .card .card-content {
+        padding: 18px;
+    }
+
+    .btn-buscar {
+        padding-bottom: 26px;
+    }
+
+    #detalle img {
+        width: 100%;
+        height: 200px;
+    }
+
+    .tabla-ingredientes {
+        display: block;
+        overflow-x: auto;
+    }
+}

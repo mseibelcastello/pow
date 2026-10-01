@@ -4,32 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EJERCICIO 3</title>
-    <script src="javascript.js"></script>
+    <title>RECETARIO INTERACTIVO</title>
+    <link rel="stylesheet" href="materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <h1>RECETARIO ITNERACTIVO :P</h1>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo"><i class="material-icons">restaurant_menu</i> Recetario interactivo</a>
+        </div>
+    </nav>
 
-    <h2>Buscar comida</h>
-        <input type="text" id="buscador">
-        <button onclick="buscar_nombre()">BUSCAR</button>
+    <main class="container">
 
-        <select id="categorias" onchange="buscar_categoria(this.value)">
-            <option value="">Seleccionar categoría</option>
-        </select>
+        <div class="card panel-buscar">
+            <div class="card-content">
+                <span class="card-title titulo-seccion"><i class="material-icons left">search</i> Buscar comida</span>
 
-        <select id="areas" onchange="buscar_area(this.value)">
-            <option value="">Seleccionar área</option>
-        </select>
+                <div class="row">
+                    <div class="col s12 m7">
+                        <div class="input-field">
+                            <input id="buscador" type="text">
+                            <label for="buscador">Nombre de la receta</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m5 btn-buscar">
+                        <button class="btn waves-effect waves-light" onclick="buscar_nombre()">
+                            <i class="material-icons left">search</i> Buscar
+                        </button>
+                    </div>
+                </div>
 
-        <select id="ingredientes" onchange="buscar_ingrediente(this.value)">
-            <option value="">Seleccionar ingrediente</option>
-        </select>
+                <div class="row filtros">
+                    <div class="col s12 m4">
+                        <div class="input-field">
+                            <select id="categorias" onchange="buscar()">
+                                <option value="" disabled selected>Seleccionar categoría</option>
+                            </select>
+                            <label>Filtrar por categoría</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="input-field">
+                            <select id="areas" onchange="buscar()">
+                                <option value="" disabled selected>Seleccionar área</option>
+                            </select>
+                            <label>Filtrar por área</label>
+                        </div>
+                    </div>
+                    <div class="col s12 m4">
+                        <div class="input-field">
+                            <select id="ingredientes" onchange="buscar()">
+                                <option value="" disabled selected>Seleccionar ingrediente</option>
+                            </select>
+                            <label>Filtrar por ingrediente</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <div id="resultados_buscar"></div>>
-        <div id="detalle"></div>
-        
+        <div class="card panel-resultados">
+            <div class="card-content">
+                <span class="card-title titulo-seccion"><i class="material-icons left">grid_view</i> Resultados</span>
+                <div id="estado"></div>
+                <div id="resultados_buscar" class="row tarjetas"></div>
+            </div>
+        </div>
+
+        <div class="card panel-detalle">
+            <div class="card-content">
+                <span class="card-title titulo-seccion"><i class="material-icons left">menu_book</i> Detalle de la receta</span>
+                <div id="detalle"></div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div class="footer-copyright">
+            <div class="container">Trabajo Practico 4 - Ejercicio 3 - PERALTA Damaris, SEIBEL Micaela</div>
+        </div>
+    </footer>
+
+    <script src="materialize.min.js"></script>
+    <script src="javascript.js"></script>
 </body>
 
 </html>
