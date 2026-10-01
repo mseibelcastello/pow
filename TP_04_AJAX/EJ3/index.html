@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJERCICIO 3</title>
+    <script src="javascript.js"></script>
+</head>
+
+<body>
+    <h1>RECETARIO ITNERACTIVO :P</h1>
+
+    <h2>Buscar comida</h>
+        <input type="text" id="buscador">
+        <button onclick="buscar_nombre()">BUSCAR</button>
+
+        <select id="categorias" onchange="buscar_categoria(this.value)">
+            <option value="">Seleccionar categoría</option>
+        </select>
+
+        <select id="areas" onchange="buscar_area(this.value)">
+            <option value="">Seleccionar área</option>
+        </select>
+
+        <select id="ingredientes" onchange="buscar_ingrediente(this.value)">
+            <option value="">Seleccionar ingrediente</option>
+        </select>
+
+        <div id="resultados_buscar"></div>>
+</body>
+
+</html>
